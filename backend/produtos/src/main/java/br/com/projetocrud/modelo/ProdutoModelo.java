@@ -18,4 +18,6 @@ public class ProdutoModelo {
   private Long codigo;
   private String nome;
   private String marca;
+  private Double preco;
+  private Double quantidade;
 }
