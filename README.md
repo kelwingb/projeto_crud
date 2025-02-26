@@ -10,11 +10,11 @@ Certifique-se de ter o Node.js instalado na sua máquina. Você pode baixá-lo e
 
 1. Clone o repositório:
    ```sh
-   git clone git@github.com:kelwingb/Projeto_CRUD.git
+   git clone git@github.com:kelwingb/projeto_crud.git
    ```
 2. Navegue até o diretório do projeto:
     ```sh
-    cd Projeto_CRUD
+    cd projeto_crud
     ```
 3. Instale as dependências:
     ```sh
