@@ -10,4 +10,5 @@ import lombok.Setter;
 @Getter
 public class RespostaModelo {
   private String resposta;
+  
 }
