@@ -17,17 +17,17 @@ public class ProdutoServico {
   @Autowired
   private RespostaModelo rm;
 
-  public Iterable<ProdutoModelo> listar(){
+  public Iterable<ProdutoModelo> listar() {
     return pr.findAll();
   }
 
-  public ResponseEntity <?> cadastrar(ProdutoModelo pm){
+  public ResponseEntity<?> cadastrarAlterar(ProdutoModelo pm, String acao) {
     if (pm.getNome().equals("")) {
-      rm.setResposta("O nome do Produto é obrigatório!");
+      rm.setResposta("O nome do produto é obrigatório!");
       return new ResponseEntity<RespostaModelo>(rm, HttpStatus.BAD_REQUEST);
     } else if (pm.getMarca().equals("")) {
       rm.setResposta("A marca do produto é obrigatório!");
-      return new ResponseEntity<RespostaModelo>(rm, HttpStatus.BAD_REQUEST); 
+      return new ResponseEntity<RespostaModelo>(rm, HttpStatus.BAD_REQUEST);
     } else {
       return new ResponseEntity<ProdutoModelo>(pr.save(pm), HttpStatus.CREATED);
     }
