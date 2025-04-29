@@ -1,6 +1,6 @@
-function Tabela() {
+function Tabela({ vetor }) {
   return (
-    <table className="table">
+    <table className='table'>
       <thead>
         <tr>
           <th>#</th>
@@ -8,17 +8,20 @@ function Tabela() {
           <th>Marca</th>
           <th>Selecionar</th>
         </tr>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
       </thead>
+      <tbody>
+        {
+          vetor.map((obj, indice) => (
+            <tr key={indice}>
+              <td>{indice + 1}</td>
+              <td>{obj.nome}</td>
+              <td>{obj.marca}</td>
+              <td><button className="btn btn-success"></button></td>
+            </tr>
+          ))
+        }
+      </tbody>
     </table>
   )
 }
-
 export default Tabela;
