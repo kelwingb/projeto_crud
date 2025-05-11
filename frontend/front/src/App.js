@@ -19,6 +19,7 @@ function App() {
 
   return (
     <div>
+      <p>{JSON.stringify(produtos)}</p>
       <Formulario botao={btnCadastrar} />
       <Tabela vetor={produtos} />
     </div>
