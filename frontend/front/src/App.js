@@ -47,14 +47,20 @@ function App() {
           alert(retorno_convertido.mensage);
         } else {
           setProdutos([...produtos, retorno_convertido]);
-          alert('Produto cadastrado com sucesso!')
+          alert('Produto cadastrado com sucesso!');
+          limparFormulario();
         }
       })
   }
 
+  //Limpar formulário
+  const limparFormulario = () => {
+    setObjProduto(produto);
+  }
+
   return (
     <div>
-      <Formulario botao={btnCadastrar} eventoTeclado={aoDigitar} cadastrar={cadastrar} />
+      <Formulario botao={btnCadastrar} eventoTeclado={aoDigitar} cadastrar={cadastrar} obj={objProduto} />
       <Tabela vetor={produtos} />
     </div>
   );
