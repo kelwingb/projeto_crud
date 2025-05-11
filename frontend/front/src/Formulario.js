@@ -1,9 +1,9 @@
-function Formulario({ botao }) {
+function Formulario({ botao, eventoTeclado }) {
   return (
     <form>
       <h2>Sistema Gestor de Produtos</h2>
-      <input className="form-control" type="text" placeholder="Nome"></input>
-      <input className="form-control" type="text" placeholder="Marca"></input>
+      <input type='text' placeholder='Nome' onChange={eventoTeclado} name="nome" className='form-control' />
+      <input type='text' placeholder='Marca' onChange={eventoTeclado} name="marca" className='form-control' />
       {
         botao
           ?
