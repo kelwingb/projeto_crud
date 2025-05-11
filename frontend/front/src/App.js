@@ -43,13 +43,45 @@ function App() {
     })
       .then(retorno => retorno.json())
       .then(retorno_convertido => {
-        if (retorno_convertido.mensage !== undefined) {
-          alert(retorno_convertido.mensage);
+        if (retorno_convertido.mensagem !== undefined) {
+          alert(retorno_convertido.mensagem);
         } else {
           setProdutos([...produtos, retorno_convertido]);
           alert('Produto cadastrado com sucesso!');
           limparFormulario();
         }
+      })
+  }
+
+  //Remover produto
+  const remover = () => {
+    fetch('http://localhost:8080/remover/' + objProduto.codigo, {
+      method: 'delete',
+      headers: {
+        'Content-type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+      .then(retorno => retorno.json())
+      .then(retorno_convertido => {
+        alert(retorno_convertido.mensagem);
+
+        //Cópia do vetor de produtos
+        let vetorTemp = [...produtos];
+
+        //Índice
+        let indice = vetorTemp.findIndex((p) => {
+          return p.codigo === objProduto.codigo;
+        });
+
+        //Remover produto do vetorTemp
+        vetorTemp.splice(indice, 1);
+
+        //Atualizar o vetor de produtos
+        setProdutos(vetorTemp);
+
+        limparFormulario();
+
       })
   }
 
@@ -68,7 +100,7 @@ function App() {
 
   return (
     <div>
-      <Formulario botao={btnCadastrar} eventoTeclado={aoDigitar} cadastrar={cadastrar} obj={objProduto} cancelar={limparFormulario} />
+      <Formulario botao={btnCadastrar} eventoTeclado={aoDigitar} cadastrar={cadastrar} obj={objProduto} cancelar={limparFormulario} remover={remover} />
       <Tabela vetor={produtos} selecionar={selecionarProduto} />
     </div>
   );
